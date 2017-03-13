@@ -7,7 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 
 /**
@@ -16,9 +19,21 @@ import android.widget.RelativeLayout;
 
 public class ReadStoryFraqment extends Fragment{
     BottomSheetBehavior bottomSheetBehavior;
+    public static ImageButton btnPlay,btnStop,btnRwind, btnForward;
+    public static TextView audioCurrentDurationLabel,
+            audioTotalDurationLabel;
+    public static SeekBar sb;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle BundlesavedInstanceState){
         View rootView = inflater.inflate(R.layout.readstory_tab,container,false);
         View bottomSheet = rootView.findViewById(R.id.audioBar);
+        btnPlay = (ImageButton) rootView.findViewById(R.id.imgPlay);
+        btnForward = (ImageButton) rootView.findViewById(R.id.imgForward);
+        btnRwind = (ImageButton) rootView.findViewById(R.id.imgRewind);
+        btnStop = (ImageButton) rootView.findViewById(R.id.imgStop);
+        sb = (SeekBar) rootView.findViewById(R.id.seekbar);
+        audioCurrentDurationLabel = (TextView) rootView.findViewById(R.id.labelStart);
+        audioTotalDurationLabel = (TextView) rootView.findViewById(R.id.labelEnd);
+
         bottomSheetBehavior = BottomSheetBehavior.from((View) bottomSheet);
         bottomSheetBehavior.setPeekHeight(0);
         RelativeLayout layout_story = (RelativeLayout) rootView.findViewById(R.id.layout_story);
