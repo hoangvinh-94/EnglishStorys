@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
+        android:id="@+id/layoutTitle"
+        android:weightSum="1"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="0.9"
+            android:scaleType="fitXY"
+            android:cropToPadding="true"
+            android:src="@drawable/sample"
+            android:id="@+id/imgTitle"
+            android:background="#EEEEEE"
+            />
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Chúa Tể Những Chiếc Nhẫn"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:textSize="12dp"
+        android:layout_weight="0.1"
+        android:textAlignment="center"
+        android:id="@+id/txtTitle" />
+
+</LinearLayout>
+
+
