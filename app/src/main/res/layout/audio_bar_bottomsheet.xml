@@ -14,28 +14,55 @@
     android:orientation="vertical">
 
     <SeekBar
+        android:id="@+id/seekbar"
         android:layout_width="match_parent"
         android:layout_margin="5dp"
         android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/labelStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="0:00"
+            android:layout_marginLeft="10dp"
+            />
+        <TextView
+
+            android:id="@+id/labelEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8:00"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            />
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
         <ImageButton
+            android:id="@+id/imgRewind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/rewind"
             />
         <ImageButton
+            android:id="@+id/imgPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/play"/>
         <ImageButton
+            android:id="@+id/imgStop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/stop"/>
         <ImageButton
+            android:id="@+id/imgForward"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/forward"/>
