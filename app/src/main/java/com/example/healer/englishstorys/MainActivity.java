@@ -1,5 +1,6 @@
 package com.example.healer.englishstorys;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +21,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,12 +43,16 @@ public class MainActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
-
+    String url;
+    public static int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Intent intent = getIntent();
+        url = intent.getStringExtra("url");
+        position = intent.getIntExtra("position",-1);
+        Log.d("vd",url+position);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
@@ -65,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 
 
     @Override
@@ -107,6 +119,10 @@ public class MainActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     ReadStoryFraqment tab1 = new ReadStoryFraqment();
+                    Intent intentService = new Intent(MainActivity.this,MyService.class);
+                    intentService.putExtra("url",url);
+                    intentService.putExtra("position",position);
+                    startService(intentService);
                     return tab1;
                 case 1:
                     TranslateFragment tab2 = new TranslateFragment();

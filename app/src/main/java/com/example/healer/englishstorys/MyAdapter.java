@@ -33,38 +33,45 @@ public class MyAdapter extends ArrayAdapter<Story> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if(convertView==null){
             LayoutInflater inflater = context.getLayoutInflater();
             convertView=inflater.inflate(layoutId,null);
         }
-        Story story = arr.get(position);
+        final Story story = arr.get(position);
         ImageView imageTitle = (ImageView) convertView.findViewById(R.id.imgTitle);
         TextView textTitle = (TextView)convertView.findViewById(R.id.txtTitle);
         LinearLayout layoutTitle=(LinearLayout)convertView.findViewById(R.id.layoutTitle);
         imageTitle.setImageURI(Uri.parse(story.getImage()));
         textTitle.setText(story.getTitle());
-        Bundle bundle = new Bundle();
 
         final Intent intent = new Intent(this.context,MainActivity.class);
+        final Intent intentService = new Intent(this.context,MyService.class);
+        intent.putExtra("url",story.getLinkAudio());
+        intent.putExtra("position",position);
+
 
         imageTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(intent);
+                //context.startService(intentService);
+                getContext().startActivity(intent);
             }
         });
         textTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(intent);
+                //context.startService(intentService);
+                getContext().startActivity(intent);
             }
         });
         layoutTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(intent);
-            }
+                //context.startService(intentService);
+                getContext().startActivity(intent);
+
+                          }
         });
         return convertView;
     }

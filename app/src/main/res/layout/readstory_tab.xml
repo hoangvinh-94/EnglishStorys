@@ -1,20 +1,71 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-       <RelativeLayout
-           android:id="@+id/layout_story"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent">
-               <TextView
-                   android:id="@+id/content_story"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:fadeScrollbars="true"
-                   android:scrollbars="vertical"
-                   android:padding="10dp"
-                   android:textColor="#000000"
-                   android:text="Read Story dsflasdf  sdf sdlfs dfdsfl " />
-       </RelativeLayout>
-        <include layout="@layout/audio_bar_bottomsheet"/>
+    <LinearLayout
+        android:id="@+id/layout_story"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_Title"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                android:textColor="#000000"
+                android:gravity="center"
+                android:layout_marginTop="12dp"
+                android:text="Title for Story"
+                android:layout_alignParentTop="true"
+                android:layout_alignLeft="@+id/img_Picture"
+                android:layout_alignStart="@+id/img_Picture" />
+            <ImageView
+                android:id="@+id/img_Picture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cropToPadding="true"
+                android:scaleType="fitXY"
+                android:layout_margin="10dp"
+                android:background="@drawable/orange"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/txt_Title"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:scrollbars="none"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/content_story"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:fadeScrollbars="true"
+                    android:scrollbars="vertical"
+                    android:padding="20dp"
+                    android:textSize="20dp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="#000000"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+            </ScrollView>
+        </RelativeLayout>
+    </LinearLayout>
+    <include layout="@layout/audio_bar_bottomsheet"/>
 </android.support.design.widget.CoordinatorLayout>
